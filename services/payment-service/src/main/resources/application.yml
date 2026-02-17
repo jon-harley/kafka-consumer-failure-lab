@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+spring:
+  kafka:
+    consumer:
+      group-id: payment-group
+      enable-auto-commit: true
+      auto-offset-reset: earliest
+
+    properties:
+      max.poll.interval.ms: 10000   # 10s
+      max.poll.records: 1
