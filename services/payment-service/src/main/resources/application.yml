@@ -5,9 +5,13 @@ spring:
   kafka:
     consumer:
       group-id: payment-group
-      enable-auto-commit: true
+      enable-auto-commit: false
       auto-offset-reset: earliest
+    listener:
+      ack-mode: manual_immediate
 
     properties:
-      max.poll.interval.ms: 10000   # 10s
+      session.timeout.ms: 10000
+      heartbeat.interval.ms: 3000
+      max.poll.interval.ms: 10000
       max.poll.records: 1
